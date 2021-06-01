@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HelpersService } from '../helpers/helpers.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class ImgThesimpsonsService {
   private BASE_URL: string;
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,
+              private helpers: HelpersService) {
     this.BASE_URL = 'https://akabab.github.io/superhero-api/api';
    }
 
@@ -21,13 +24,10 @@ export class ImgThesimpsonsService {
     Object.values(characters).map( character => {
       images.push(character?.['images'].md);
     });
-    return this.shuffle(images).slice(0,10);
+    return this.helpers.shuffle(images).slice(0,10);
   }
 
-  shuffle(array: any[]):any[] {
-    return array.map(a => [Math.random(), a])
-      .sort((a, b) => a[0] - b[0])
-      .map(a => a[1]);
-  }
+
+
 
 }

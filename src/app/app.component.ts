@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardInterface } from './shared/models/card.interface';
 import { ImgThesimpsonsService } from './service/img-thesimpsons.service';
+import { HelpersService } from './helpers/helpers.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
   cards: CardInterface[] = [];
   frontCards: CardInterface[] = [];
 
-  constructor( private imgService: ImgThesimpsonsService){}
+  constructor( private imgService: ImgThesimpsonsService,
+               private helpers: HelpersService){}
 
   ngOnInit(): void {
     this.initCard();
@@ -39,7 +41,7 @@ export class AppComponent implements OnInit {
       this.cards.push({...card});
     });
     //hay que mesclarlas
-
+    this.cards = this.helpers.shuffle(this.cards);
   }
 
 
