@@ -18,6 +18,8 @@
     overflow: hidden;
     backface-visibility: hidden;
     cursor: pointer;
+    -webkit-box-shadow: -1px 0px 9px 5px rgba(0,0,0,0.49);
+    box-shadow: -1px 0px 9px 5px rgba(0,0,0,0.49);
     >img{
       object-fit: cover;
       object-position: center center;
@@ -25,7 +27,16 @@
     }
   }
   &__back{
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU4jkOwGhmjHR_IW-rROn9ppo0GGuKFwJBGg&usqp=CAU');
+    padding: 10px;
     transform: rotateY(0deg);
+    height: 100%;
+    width: auto;
+    box-sizing: border-box;
+    >img{
+      width: 80px;
+      height: 100%;
+    }
   }
   &__front{
     transform: rotateY(180deg);

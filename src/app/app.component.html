@@ -2,10 +2,12 @@
   Memorama - Aivo
 </mat-toolbar>
 
-<div class="card__grid">
-  <app-card *ngFor="let card of cards, let id=index"
-            [data]="card"
-            (clickPropagate)="propagateClick(id)">
-  </app-card>
+<div class="container">
+  <div class="card__grid">
+    <app-card *ngFor="let card of cards, let id=index"
+              [data]="card"
+              (clickPropagate)="propagateClick(id)">
+    </app-card>
+  </div>
 </div>
 
