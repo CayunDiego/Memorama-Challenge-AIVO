@@ -6,13 +6,13 @@ import { HelpersService } from '../helpers/helpers.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ImgThesimpsonsService {
+export class ImgSuperHeroes {
   private BASE_URL: string;
 
   constructor(private http:HttpClient,
               private helpers: HelpersService) {
     this.BASE_URL = 'https://akabab.github.io/superhero-api/api';
-   }
+  }
 
   async getImages(){
     let images: string[] = [];
@@ -26,8 +26,5 @@ export class ImgThesimpsonsService {
     });
     return this.helpers.shuffle(images).slice(0,10);
   }
-
-
-
 
 }

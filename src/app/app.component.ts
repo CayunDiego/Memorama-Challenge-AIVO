@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardInterface } from './shared/models/card.interface';
-import { ImgThesimpsonsService } from './service/img-thesimpsons.service';
+import { ImgSuperHeroes } from './service/imgSuperHeroes.service';
 import { HelpersService } from './helpers/helpers.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   cards: CardInterface[] = [];
   frontCards: CardInterface[] = [];
 
-  constructor( private imgService: ImgThesimpsonsService,
+  constructor( private imgService: ImgSuperHeroes,
                private helpers: HelpersService){}
 
   ngOnInit(): void {
@@ -44,8 +44,7 @@ export class AppComponent implements OnInit {
     this.cards = this.helpers.shuffle(this.cards);
   }
 
-
-  propagateClick(id){
+  propagateClick(id:number){
     const currentCard = this.cards[id];
     console.log("card", currentCard)
 
@@ -54,10 +53,9 @@ export class AppComponent implements OnInit {
       this.frontCards.push(currentCard);
     }
     this.frontCards.length === 2 && this.verifyMatch(this.frontCards);
-
   }
 
-  verifyMatch(pairOfCards){
+  verifyMatch(pairOfCards: CardInterface[]){
     if(pairOfCards[0].idCard === pairOfCards[1].idCard){
       const idCard = pairOfCards[0].idCard;
       this.cards.map( card => {
@@ -79,6 +77,5 @@ export class AppComponent implements OnInit {
     }
     this.frontCards = [];
   }
-
 
 }
