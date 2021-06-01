@@ -16,7 +16,7 @@ import { CardInterface } from '../shared/models/card.interface';
       })),
       state('3', style({
         transform: 'perspective(600px) rotateY(180deg)',
-        backgroundColor: "blue"
+        backgroundImage: "url(https://i.pinimg.com/originals/26/05/18/2605189d1689f4f9aa9bb2a78f08b9b1.gif)"
       })),
       transition('1 => 2', [
         animate('400ms')

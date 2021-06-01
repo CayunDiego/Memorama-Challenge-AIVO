@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardInterface } from './shared/models/card.interface';
+import { ImgThesimpsonsService } from './service/img-thesimpsons.service';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +9,21 @@ import { CardInterface } from './shared/models/card.interface';
 })
 export class AppComponent implements OnInit {
   title = 'Memorama';
-  imagesFrontCard = [
-    'https://assets.pokemon.com/assets/cms2-es-es/img/cards/web/NRG/NRG_ES_28.png',
-    'https://assets.pokemon.com/assets/cms2-es-es/img/cards/web/NRG/NRG_ES_31.png',
-    'http://vignette4.wikia.nocookie.net/es.pokemon/images/5/55/Energ%C3%ADa_planta_%28Diamante_%26_Perla_TCG%29.jpg/revision/latest?cb=20111231153753',
-    'https://static.wikia.nocookie.net/espokemon/images/2/2d/Energ%C3%ADa_rel%C3%A1mpago_%28Diamante_%26_Perla_TCG%29.jpg/revision/latest?cb=20101229214129',
-    'https://static.wikia.nocookie.net/espokemon/images/7/76/Energ%C3%ADa_incolora_%28Ex_Legend_Maker_TCG%29.png/revision/latest?cb=20111016231509'
-  ];
+  imagesFrontCard: string[] = [];
 
   cards: CardInterface[] = [];
   frontCards: CardInterface[] = [];
 
+  constructor( private imgService: ImgThesimpsonsService){}
+
   ngOnInit(): void {
+    this.initCard();
+  }
+
+  async initCard(){
+    await this.imgService.getImages().then( images => {
+      this.imagesFrontCard = images;
+    });
     this.setCards();
   }
 
