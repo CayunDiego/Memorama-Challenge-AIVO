@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { CardComponent } from './card/card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlayerComponent } from './player/player.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
