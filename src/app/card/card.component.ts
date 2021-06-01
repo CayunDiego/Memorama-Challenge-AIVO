@@ -7,7 +7,7 @@ import { CardInterface } from '../shared/models/card.interface';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   animations: [
-    trigger('cardFlip', [
+    trigger('cardAnimation', [
       state("1", style({
         transform: 'none',
       })),
