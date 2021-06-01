@@ -1,0 +1,9 @@
+.card{
+  &__grid{
+    margin-top: 20px;
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(4,1fr);
+  }
+}

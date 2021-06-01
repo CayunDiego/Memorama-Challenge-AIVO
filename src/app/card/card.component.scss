@@ -1,0 +1,27 @@
+.card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  position: relative;
+  &__back, &__front{
+    width: 100px;
+    height: 150px;
+    border-radius: 15px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    cursor: pointer;
+    >img{
+      object-fit: cover;
+      object-position: center center;
+      width: 100px;
+      height: 150px;
+    }
+  }
+  &__back{
+    transform: rotateY(0deg);
+  }
+  &__front{
+    transform: rotateY(180deg);
+  }
+}

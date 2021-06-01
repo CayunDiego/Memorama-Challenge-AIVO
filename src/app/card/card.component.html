@@ -1,0 +1,9 @@
+
+<div class="card" (click)="propagateClick()" [@cardFlip]="data.status">
+  <div class="card__back">
+      <img src="assets/8b874ac3b63e483339cbdb05a15fb716.jpg">
+  </div>
+  <div class="card__front">
+    <img [src]="data.img">
+  </div>
+</div>
