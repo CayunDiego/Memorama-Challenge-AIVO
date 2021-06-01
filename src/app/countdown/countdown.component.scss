@@ -1,0 +1,9 @@
+.countdown{
+  background-color: rgba(82, 82, 82, 0.726);
+  padding: 5px 10px;
+  border-radius: 5px;
+  &__time{
+    color: white;
+    margin: 0;
+  }
+}

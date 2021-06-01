@@ -8,13 +8,15 @@ import { SharedModule } from './shared/shared.module';
 import { CardComponent } from './card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlayerComponent } from './player/player.component';
+import { CountdownComponent } from './countdown/countdown.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    PlayerComponent
+    PlayerComponent,
+    CountdownComponent
   ],
   imports: [
     BrowserModule,
