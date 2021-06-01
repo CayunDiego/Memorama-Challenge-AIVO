@@ -3,7 +3,7 @@
   <div class="card__back">
       <img src="assets/DC_card_back.jpg">
   </div>
-  <div class="card__front">
+  <div class="card__front" [ngClass]="{'card__front--opacity': data.status === 3}">
     <img [src]="data.img">
   </div>
 </div>
