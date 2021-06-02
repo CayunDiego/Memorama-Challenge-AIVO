@@ -24,6 +24,17 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.initCard();
+    this.initPlayers();
+  }
+
+  async initCard(){
+    await this.imgService.getImages().then( images => {
+      this.imagesFrontCard = images;
+    });
+    this.setCards();
+  }
+
+  initPlayers(){
     this.players = [{
       id: 1,
       userName: "Tiago",
@@ -38,13 +49,7 @@ export class AppComponent implements OnInit {
       status: false,
       points: 0
     }];
-  }
-
-  async initCard(){
-    await this.imgService.getImages().then( images => {
-      this.imagesFrontCard = images;
-    });
-    this.setCards();
+    this.isPlayer = [0,1];
   }
 
   setCards() {
@@ -124,4 +129,9 @@ export class AppComponent implements OnInit {
     }
   }
 
+  restartGame(): void {
+    this.imagesFrontCard = [];
+    this.initCard();
+    this.initPlayers();
+  }
 }
