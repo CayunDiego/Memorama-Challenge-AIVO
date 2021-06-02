@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="toolBar">
   Memorama - Aivo Desafío
-  <app-countdown></app-countdown>
+  <app-countdown [togglePlayer]="toggle" (togglePlayertEmitter)="togglePlayertEmitter()"></app-countdown>
   <button mat-raised-button color="warn" (click)="restartGame()">
     Reiniciar partida
   </button>

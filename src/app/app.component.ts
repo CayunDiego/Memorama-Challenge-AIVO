@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
   players: PlayerInterface[] = [];
   isPlayer: number[] = [0,1];
 
+  toggle: boolean = false;
+
   constructor( private imgService: ImgSuperHeroes,
                private helpers: HelpersService){}
 
@@ -127,11 +129,18 @@ export class AppComponent implements OnInit {
       ...this.players[this.isPlayer[0]],
       status: true
     }
+    this.toggle = !this.toggle;
   }
 
   restartGame(): void {
     this.imagesFrontCard = [];
     this.initCard();
     this.initPlayers();
+    this.toggle = !this.toggle;
   }
+
+  togglePlayertEmitter(){
+    this.togglePlayer();
+  }
+
 }
