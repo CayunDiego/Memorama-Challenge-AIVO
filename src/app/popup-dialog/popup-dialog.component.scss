@@ -1,0 +1,71 @@
+.popup{
+  &__main{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 250;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__container{
+    width: 700px;
+    height: 500px;
+    background: rgb(33,55,55);
+    background: linear-gradient(347deg, rgba(33,55,55,1) 0%, rgba(0,0,0,1) 100%);
+    -webkit-box-shadow: -1px 0px 9px 5px rgba(0,0,0,0.49);
+    box-shadow: -1px 0px 9px 5px rgba(37, 37, 37, 0.49);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  &__button{
+    font-size: 30px;
+    color: white;
+    padding: 20px 30px;
+  }
+}
+
+.winnerContainer{
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__players{
+    display: flex;
+    justify-content: center;
+  }
+  &__player{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    >img{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center center;
+      overflow: hidden;
+    }
+    >h1{
+      color: white;
+      font-size: 25px;
+    }
+  }
+  &__logo{
+    width: 150px;
+    margin-bottom: 10px;
+    >h1{
+      color: white;
+      font-size: 40px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.card{
+  width: 110px;
+  height: 150px;
+  transform-style: preserve-3d;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
+  &__back, &__front{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 5%;
+    width: 100px;
+    height: 150px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    cursor: pointer;
+    -webkit-box-shadow: -1px 0px 9px 5px rgba(0,0,0,0.49);
+    box-shadow: -1px 0px 9px 5px rgba(0,0,0,0.49);
+    >img{
+      object-fit: cover;
+      object-position: center center;
+      width: 100px;
+    }
+  }
+  &__back{
+    background-image: url('/assets/card_back_border.jpg');
+    padding: 10px;
+    transform: rotateY(0deg);
+    height: 100%;
+    width: auto;
+    box-sizing: border-box;
+    >img{
+      width: 80px;
+      height: 100%;
+    }
+  }
+  &__front{
+    transform: rotateY(180deg);
+    &--opacity{
+      opacity: .9;
+    }
+  }
+}
