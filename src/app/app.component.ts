@@ -64,12 +64,11 @@ export class AppComponent implements OnInit {
 
   propagateClick(id:number){
     const currentCard = this.cards[id];
-    console.log("card", currentCard)
     if(currentCard.status === 1 && this.frontCards.length <= 1 ){
       currentCard.status = 2;
       this.frontCards.push(currentCard);
+      this.frontCards.length === 2 && this.verifyMatch(this.frontCards);
     }
-    this.frontCards.length === 2 && this.verifyMatch(this.frontCards);
   }
 
   //Match function
@@ -93,12 +92,12 @@ export class AppComponent implements OnInit {
             card.status = 1;
           }
         });
-      }, 1000);
-      setTimeout(() => {
         this.togglePlayer();
       }, 1000);
     }
-    this.frontCards = [];
+    setTimeout(() => {
+      this.frontCards = [];
+    }, 1000);
   }
 
   setPlayer(){
