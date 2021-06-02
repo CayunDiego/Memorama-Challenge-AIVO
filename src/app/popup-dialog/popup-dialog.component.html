@@ -1,5 +1,21 @@
 <div class="popup__main">
   <div class="popup__container">
+    <div *ngIf="players[0]?.winner || players[1]?.winner" class="winnerContainer">
+      <div class="winnerContainer__logo" >
+        <img src="assets/winner.svg"
+             alt="winner_logo"
+             *ngIf="!(players[0]?.winner && players[1]?.winner)">
+        <h1 *ngIf="(players[0]?.winner && players[1]?.winner)">EMPATE!</h1>
+      </div>
+      <div class="winnerContainer__players" >
+        <ng-container *ngFor="let player of players">
+          <div  class="winnerContainer__player" *ngIf="player.winner">
+            <img src="assets/avatar-{{player.img}}.png" alt="photo_player">
+            <h1>{{player.userName}}</h1>
+          </div>
+        </ng-container>
+      </div>
+    </div>
     <button mat-stroked-button
             class="popup__button"
             (click)="clickStart()">
@@ -7,3 +23,12 @@
     </button>
   </div>
 </div>
+
+
+<!-- <div *ngIf="players[0]?.winner || players[1]?.winner" class="winnerContainer">
+  <ng-container >
+    <div  class="winnerContainer__player">
+        {{player.userName}}
+    </div>
+  </ng-container>
+</div> -->

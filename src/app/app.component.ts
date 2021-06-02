@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
 
   endGame(){
     this.gameStatus = false;
+    this.verifyWinner();
   }
 
   async initCard(){
@@ -51,14 +52,16 @@ export class AppComponent implements OnInit {
       userName: "Tiago",
       img: "1",
       status: true,
-      points: 0
+      points: 0,
+      winner: false
     },
     {
       id: 2,
       userName: "Tiara",
       img: "2",
       status: false,
-      points: 0
+      points: 0,
+      winner: false
     }];
     this.isPlayer = [0,1];
   }
@@ -75,7 +78,7 @@ export class AppComponent implements OnInit {
       this.cards.push({...card});
     });
     //hay que mesclar las cartas
-    // this.cards = this.helpers.shuffle(this.cards);
+    this.cards = this.helpers.shuffle(this.cards);
   }
 
   //click on the card
@@ -120,7 +123,7 @@ export class AppComponent implements OnInit {
     }
     setTimeout(() => {
       this.frontCards = [];
-    }, 1000);
+    }, 800);
   }
 
   setPlayer(){
@@ -153,10 +156,29 @@ export class AppComponent implements OnInit {
     this.initCard();
     this.initPlayers();
     this.toggle = !this.toggle;
+    this.gameStatus = false;
   }
 
   togglePlayertEmitter(){
     this.togglePlayer();
+  }
+
+  verifyWinner(){
+    if(this.players[0].points > this.players[1].points){
+      this.setWinner(0);
+    } else if(this.players[0].points < this.players[1].points){
+      this.setWinner(1);
+    } else {
+      this.setWinner(1);
+      this.setWinner(0);
+    }
+  }
+
+  setWinner(player){
+    this.players[player] = {
+      ...this.players[player],
+      winner: true
+    }
   }
 
 }

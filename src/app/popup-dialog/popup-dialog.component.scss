@@ -31,3 +31,41 @@
     padding: 20px 30px;
   }
 }
+
+.winnerContainer{
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__players{
+    display: flex;
+    justify-content: center;
+  }
+  &__player{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    >img{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center center;
+      overflow: hidden;
+    }
+    >h1{
+      color: white;
+      font-size: 25px;
+    }
+  }
+  &__logo{
+    width: 150px;
+    margin-bottom: 10px;
+    >h1{
+      color: white;
+      font-size: 40px;
+    }
+  }
+}

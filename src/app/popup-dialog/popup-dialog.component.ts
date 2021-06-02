@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { PlayerInterface } from '../shared/models/player.interface';
 
 @Component({
   selector: 'app-popup-dialog',
@@ -8,6 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class PopupDialogComponent implements OnInit {
 
   @Output() clickPropagate = new EventEmitter();
+  @Input() players: PlayerInterface[];
 
   constructor() { }
 

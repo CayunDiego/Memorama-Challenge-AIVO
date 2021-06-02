@@ -19,4 +19,7 @@
   <p class="container__footer">2021 - Cayun Diego - Prueba técnica Frontend - Aivo</p>
 </div>
 
-<app-popup-dialog *ngIf="!gameStatus" (clickPropagate)="startGame()"></app-popup-dialog>
+<app-popup-dialog *ngIf="!gameStatus"
+                  (clickPropagate)="startGame()"
+                  [players]='players'
+                  ></app-popup-dialog>

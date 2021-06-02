@@ -3,5 +3,6 @@ export interface PlayerInterface{
   userName?: string;
   img?: string;
   status?: boolean;
-  points?: number
+  points?: number;
+  winner?: boolean;
 }
