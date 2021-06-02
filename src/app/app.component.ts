@@ -39,11 +39,11 @@ export class AppComponent implements OnInit {
     this.verifyWinner();
   }
 
-  async initCard(){
-    await this.imgService.getImages().then( images => {
+  initCard(){
+    this.imgService.getImages().subscribe( images => {
       this.imagesFrontCard = images;
+      this.setCards();
     });
-    this.setCards();
   }
 
   initPlayers(){
