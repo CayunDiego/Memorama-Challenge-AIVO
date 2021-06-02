@@ -1,6 +1,6 @@
 .playerContainer{
   position: relative;
-  width: 200px;
+  width: 180px;
   height: 100px;
   background-color: white;
   border-radius: 20px;
@@ -16,8 +16,8 @@
   }
   &__avatar{
     position: absolute;
-    top: -20px;
-    left: -20px;
+    top: 16.5px;
+    left: -22px;
     width: 55px;
     height: 55px;
     border: 4px solid #353535;
@@ -41,17 +41,22 @@
     color: rgb(202, 202, 202);
     >h1{
       margin: 0;
+      font-size: 18px;
     }
     >h2{
       margin: 0;
+      font-size: 20px;
     }
-    >p{
-      margin: 0;
+    >div{
+      height: 20px;
+      >p{
+        margin: 0;
+      }
     }
   }
 }
 
 .playing{
-  -webkit-box-shadow: 5px 5px 0px 0px #97fcb9, 10px 10px 0px 0px #d4ecff, 23px 22px 10px 14px rgba(0,0,0,0);
-  box-shadow: 5px 5px 0px 0px #6fbe89, 10px 10px 0px 0px rgb(153, 201, 165), 23px 22px 10px 14px rgba(0,0,0,0);
+  -webkit-box-shadow: 3px 3px 0px 0px #97fcb9, 6px 6px 0px 0px #d4ecff, -1px 0px 9px 5px rgba(0,0,0,0.49);
+  box-shadow: 3px 3px 0px 0px #6fbe89, 6px 6px 0px 0px rgb(153, 201, 165), -1px 0px 9px 5px rgba(0,0,0,0.49);
 }

@@ -1,12 +1,20 @@
 .toolBar{
   position: fixed;
-  height: 60px;
+  height: 45px;
+  font-size: 16px;
   top: 0;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   justify-items: center;
   background-color: rgba(33, 33, 33, 0.98);
   z-index: 100;
+  &__button{
+    padding: 1px 10px;
+  }
+}
+
+.mat-raised-button{
+  line-height: 32px;
 }
 
 .container{
@@ -39,10 +47,10 @@
 .card{
   &__grid{
     display: grid;
-    grid-template-columns: repeat(5,200px);
+    grid-template-columns: repeat(5,130px);
     grid-template-rows: repeat(4,1fr);
-    column-gap: 30px;
-    row-gap: 30px;
+    column-gap: 10px;
+    row-gap: 10px;
     justify-items: center;
   }
 }
