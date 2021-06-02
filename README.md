@@ -1,14 +1,32 @@
-# Memorama
+# Memorama Challenge - AIVO
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.0.
+ - This project is deployed on Vercel, you can visit the link [here](https://memorama-dc-comics.vercel.app/).
+
+
+ - This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.0.
+
+---
+## Authors
+
+* [**Diego Saúl Cayún García**](https://www.linkedin.com/in/diego-saul-cayun-garcia/) 
+## Deployment
+ * [Vercel](https://memorama-dc-comics.vercel.app/)
+
+---
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm install`
+
+Installs all the dependecies you need to run the project.
 
 ## Development server
 
+### `ng serve -o`
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
