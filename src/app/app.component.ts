@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   frontCards: CardInterface[] = [];
 
   players: PlayerInterface[] = [];
+  isPlayer: number[] = [0,1];
 
   constructor( private imgService: ImgSuperHeroes,
                private helpers: HelpersService){}
@@ -25,14 +26,14 @@ export class AppComponent implements OnInit {
     this.initCard();
     this.players = [{
       id: 1,
-      userName: "UserName 1",
+      userName: "Tiago",
       img: "1",
       status: true,
       points: 0
     },
     {
       id: 2,
-      userName: "UserName 2",
+      userName: "Tiara",
       img: "2",
       status: false,
       points: 0
@@ -64,7 +65,6 @@ export class AppComponent implements OnInit {
   propagateClick(id:number){
     const currentCard = this.cards[id];
     console.log("card", currentCard)
-
     if(currentCard.status === 1 && this.frontCards.length <= 1 ){
       currentCard.status = 2;
       this.frontCards.push(currentCard);
@@ -72,27 +72,57 @@ export class AppComponent implements OnInit {
     this.frontCards.length === 2 && this.verifyMatch(this.frontCards);
   }
 
+  //Match function
   verifyMatch(pairOfCards: CardInterface[]){
     if(pairOfCards[0].idCard === pairOfCards[1].idCard){
+      //Match
       const idCard = pairOfCards[0].idCard;
       this.cards.map( card => {
         if(card.idCard  === idCard){
           card.status = 3;
         }
       });
+      this.setPlayer();
     } else {
-        setTimeout(() => {
-          this.cards.map( card => {
-            if(card.idCard  === pairOfCards[0].idCard){
-              card.status = 1;
-            }
-            if(card.idCard  === pairOfCards[1].idCard){
-              card.status = 1;
-            }
-          });
-        }, 1000);
+      setTimeout(() => {
+        this.cards.map( card => {
+          if(card.idCard  === pairOfCards[0].idCard){
+            card.status = 1;
+          }
+          if(card.idCard  === pairOfCards[1].idCard){
+            card.status = 1;
+          }
+        });
+      }, 1000);
+      setTimeout(() => {
+        this.togglePlayer();
+      }, 1000);
     }
     this.frontCards = [];
+  }
+
+  setPlayer(){
+    this.players[this.isPlayer[0]] = {
+      ...this.players[this.isPlayer[0]],
+      points: this.players[this.isPlayer[0]].points + 10
+    }
+  }
+
+  //isPlayer [], position 0: playing, position 1: waiting
+  togglePlayer(){
+    if(this.isPlayer[0] === 0){
+      this.isPlayer = [1,0];
+    } else {
+      this.isPlayer = [0,1];
+    }
+    this.players[this.isPlayer[1]] = {
+      ...this.players[this.isPlayer[1]],
+      status: false
+    }
+    this.players[this.isPlayer[0]] = {
+      ...this.players[this.isPlayer[0]],
+      status: true
+    }
   }
 
 }
