@@ -10,6 +10,10 @@
     background-image: url('/assets/player_red.jpg');
     background-size: cover;
   }
+  &--blue{
+    background-image: url('/assets/player_blue.jpg');
+    background-size: cover;
+  }
   &__avatar{
     position: absolute;
     top: -20px;
@@ -28,8 +32,8 @@
   }
   &__info{
     height: 100%;
-    margin-left: 50px;
-    padding: 5px;
+    margin-left: 45px;
+    padding: 5px 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -45,4 +49,9 @@
       margin: 0;
     }
   }
+}
+
+.playing{
+  -webkit-box-shadow: 5px 5px 0px 0px #97fcb9, 10px 10px 0px 0px #d4ecff, 23px 22px 10px 14px rgba(0,0,0,0);
+  box-shadow: 5px 5px 0px 0px #6fbe89, 10px 10px 0px 0px rgb(153, 201, 165), 23px 22px 10px 14px rgba(0,0,0,0);
 }

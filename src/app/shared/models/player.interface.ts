@@ -1,6 +1,7 @@
 export interface PlayerInterface{
+  id: number;
   userName: string;
   img: string;
-  status: 'playing' | 'waiting';
+  status: boolean;
   points: number
 }

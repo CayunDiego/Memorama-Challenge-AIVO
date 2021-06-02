@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CardInterface } from './shared/models/card.interface';
 import { ImgSuperHeroes } from './service/imgSuperHeroes.service';
 import { HelpersService } from './helpers/helpers.service';
+import { PlayerInterface } from './shared/models/player.interface';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +16,27 @@ export class AppComponent implements OnInit {
   cards: CardInterface[] = [];
   frontCards: CardInterface[] = [];
 
+  players: PlayerInterface[] = [];
+
   constructor( private imgService: ImgSuperHeroes,
                private helpers: HelpersService){}
 
   ngOnInit(): void {
     this.initCard();
+    this.players = [{
+      id: 1,
+      userName: "UserName 1",
+      img: "1",
+      status: true,
+      points: 0
+    },
+    {
+      id: 2,
+      userName: "UserName 2",
+      img: "2",
+      status: false,
+      points: 0
+    }];
   }
 
   async initCard(){
@@ -40,7 +57,7 @@ export class AppComponent implements OnInit {
       this.cards.push({...card});
       this.cards.push({...card});
     });
-    //hay que mesclarlas
+    //hay que mesclar las cartas
     this.cards = this.helpers.shuffle(this.cards);
   }
 

@@ -1,10 +1,13 @@
-<div class="playerContainer" [ngClass]="{'playerContainer--red': true}">
+<div class="playerContainer"
+            [ngClass]="{'playerContainer--red': data.id === 1,
+                        'playerContainer--blue': data.id === 2,
+                        'playing': data.status}">
   <div class="playerContainer__avatar">
-    <img src="../../assets/avatar-1.png" alt="photo_player">
+    <img src="../../assets/avatar-{{data.img}}.png" alt="photo_player">
   </div>
   <div class="playerContainer__info">
-    <h1>Peridiego89</h1>
-    <h2>Puntos: 200</h2>
-    <p>Playing</p>
+    <h1>{{data.userName}}</h1>
+    <h2>Puntos: {{data.points}}</h2>
+    <p *ngIf="data.status">Playing</p>
   </div>
 </div>
