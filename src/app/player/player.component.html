@@ -8,6 +8,8 @@
   <div class="playerContainer__info">
     <h1>{{data.userName}}</h1>
     <h2>Puntos: {{data.points}}</h2>
-    <p *ngIf="data.status">Jugando</p>
+    <div>
+      <p *ngIf="data.status">Jugando...</p>
+    </div>
   </div>
 </div>
