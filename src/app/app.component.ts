@@ -10,6 +10,8 @@ import { PlayerInterface } from './shared/models/player.interface';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  gameStatus: boolean = false;
   title = 'Memorama';
   imagesFrontCard: string[] = [];
 
@@ -24,9 +26,16 @@ export class AppComponent implements OnInit {
   constructor( private imgService: ImgSuperHeroes,
                private helpers: HelpersService){}
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  startGame(){
+    this.gameStatus = true;
     this.initCard();
     this.initPlayers();
+  }
+
+  endGame(){
+    this.gameStatus = false;
   }
 
   async initCard(){
@@ -66,9 +75,10 @@ export class AppComponent implements OnInit {
       this.cards.push({...card});
     });
     //hay que mesclar las cartas
-    this.cards = this.helpers.shuffle(this.cards);
+    // this.cards = this.helpers.shuffle(this.cards);
   }
 
+  //click on the card
   propagateClick(id:number){
     const currentCard = this.cards[id];
     if(currentCard.status === 1 && this.frontCards.length <= 1 ){
@@ -76,6 +86,12 @@ export class AppComponent implements OnInit {
       this.frontCards.push(currentCard);
       this.frontCards.length === 2 && this.verifyMatch(this.frontCards);
     }
+    //check end game
+    this.checkEndGame();
+  }
+
+  checkEndGame(){
+    this.cards.every( card => card.status === 3) && this.endGame();
   }
 
   //Match function

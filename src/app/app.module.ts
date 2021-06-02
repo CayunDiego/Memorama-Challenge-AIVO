@@ -9,6 +9,7 @@ import { CardComponent } from './card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlayerComponent } from './player/player.component';
 import { CountdownComponent } from './countdown/countdown.component';
+import { PopupDialogComponent } from './popup-dialog/popup-dialog.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CountdownComponent } from './countdown/countdown.component';
     AppComponent,
     CardComponent,
     PlayerComponent,
-    CountdownComponent
+    CountdownComponent,
+    PopupDialogComponent
   ],
   imports: [
     BrowserModule,
